@@ -2,7 +2,7 @@
   "name": "git-cz",
   "version": "3.3.0",
   "description": "Semantic emojified git commit, git-cz",
-  "main": "dist/cz.js",
+  "main": "lib/cz.js",
   "bin": {
     "git-cz": "./bin/git-cz.js",
     "gitcz": "./bin/git-cz.js"
@@ -15,10 +15,10 @@
   "license": "Unlicense",
   "scripts": {
     "lint": "yarn eslint",
-    "clean": "rimraf dist binaries",
+    "clean": "rimraf lib binaries",
     "build": "yarn build:cli && yarn build:cz",
-    "build:cli": "browserify --node -o dist/cli.js lib/cli.js",
-    "build:cz": "browserify --node -o dist/cz.js --standalone prompter lib/cz.js",
+    "build:cli": "browserify --node -o lib/cli.js lib/cli.js",
+    "build:cz": "browserify --node -o lib/cz.js --standalone prompter lib/cz.js",
     "build:readme": "mmarkdown",
     "build:binaries": "mkdirp binaries && pkg lib/cli.js --out-path binaries",
     "test": "mocha",
@@ -49,7 +49,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./dist/cz.js"
+      "path": "./lib/cz.js"
     }
   },
   "mmarkdown": {
